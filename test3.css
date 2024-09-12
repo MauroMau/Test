@@ -1,0 +1,37 @@
+body {
+    margin: 0;
+    height: 100vh;
+    background-color: white;
+    overflow: hidden;
+}
+
+.cursor {
+    position: fixed;
+    border: 2px solid black;
+    border-radius: 50%;
+    width: 30px; /* Größe für bessere Sichtbarkeit */
+    height: 30px; /* Größe für bessere Sichtbarkeit */
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999; /* Cursor über anderen Inhalten */
+    transition: transform 0.2s ease; /* Weicher Übergang für Pulsieren */
+}
+
+.cursor.pulse {
+    animation: pulseAnimation 0.6s ease-out;
+}
+
+@keyframes pulseAnimation {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.5); /* Pulsieren auf 150% */
+        opacity: 0.5; /* Blasser werden */
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
